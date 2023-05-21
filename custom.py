@@ -6,7 +6,7 @@ from PIL import Image
 app_logo = customtkinter.CTkImage(light_image=Image.open("WhatsDown.png"),
                                   size=(50, 50))
 
-customtkinter.set_appearance_mode("System")
+customtkinter.set_appearance_mode("Light")
 customtkinter.set_default_color_theme("blue")
 
 client = socket(AF_INET, SOCK_STREAM)
@@ -18,8 +18,8 @@ client.connect((ip, port))
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.geometry("360x150")
-
+        self.geometry("360x130")
+        self.title("WhatsDown")
         self.label = customtkinter.CTkLabel(self, text="Do you want to exit?")
         self.label.pack(padx=20, pady=20)
         self.label.grid(row=0, column=0, columnspan=2, padx=20, pady=10)
@@ -92,12 +92,13 @@ class App(customtkinter.CTk):
         self.tabview.set("All")  # set currently visible tab
 
         # set default values
-        name_dialog = customtkinter.CTkInputDialog(text="What is your name:", title="Test")
+        name_dialog = customtkinter.CTkInputDialog(text="What is your name:", title="WhatsDown")
         name = name_dialog.get_input()
+        self.appearance_mode_options.set("Light")
         if name == "":
             exit()
         self.set_name(name=name)
-        self.appearance_mode_options.set("Dark")
+
         recv_thread = Thread(target=self.recv_message)
         recv_thread.daemon = True
         recv_thread.start()
@@ -126,7 +127,7 @@ class App(customtkinter.CTk):
             self.entry.delete(0, len(message))
             self.sent_message = customtkinter.CTkLabel(self.tabview.tab(self.tabview.get()), text=message + "\n",
                                                        width=840,
-                                                       font=customtkinter.CTkFont(size=14), text_color="blue",
+                                                       font=customtkinter.CTkFont(size=14), text_color=("gray10", "#DCE4EE"),
                                                        anchor="e")
             self.sent_message.grid(row=self.message_counter, column=1, columnspan=2, padx=(10, 10), sticky="nsew")
             self.message_counter = self.message_counter + 1
@@ -144,7 +145,7 @@ class App(customtkinter.CTk):
                                                                    text=message_array[0] + ": " + message_array[2],
                                                                    width=840,
                                                                    font=customtkinter.CTkFont(size=14),
-                                                                   text_color="red",
+                                                                   text_color=("gray10", "#DCE4EE"),
                                                                    anchor="w")
                     self.received_message.grid(row=self.message_counter, column=1, columnspan=2, padx=(10, 10),
                                                sticky="nsew")
@@ -160,6 +161,8 @@ class App(customtkinter.CTk):
                     self.message_counter = self.message_counter + 1
             if server_message.startswith("new_client-"):
                 self.tabview.add(server_message.split("-")[1])
+            elif server_message.startswith("exit_client-"):
+                self.tabview.delete(server_message.split("-")[1])
             elif server_message.startswith("Other users:"):
                 self.users = server_message.split(":")[1]
                 for us in self.users.split(","):

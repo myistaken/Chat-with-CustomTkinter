@@ -28,6 +28,8 @@ def client_thread(cli):
             clients.remove(cli)
             name = names[index]
             names.remove(name)
+            for c in clients:
+                c.send(("exit_client-" + name).encode('utf8'))
             print(name + ' exit')
             break
 
