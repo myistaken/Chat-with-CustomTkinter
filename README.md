@@ -1,5 +1,4 @@
 WhatsDown
-The project is titled "Chat Application" or any suitable name that describes its functionality.
 
 Description
 The project is a chat application implemented using Python and sockets. It allows multiple clients to connect to a server and exchange messages in real-time. The server and client scripts are included in the project.
