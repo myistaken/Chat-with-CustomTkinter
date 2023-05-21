@@ -1,9 +1,11 @@
 WhatsDown
 
 Description
+
 The project is a chat application implemented using Python and sockets. It allows multiple clients to connect to a server and exchange messages in real-time. The server and client scripts are included in the project.
 
 Features
+
 Real-time chat functionality
 Multiple clients can connect to the server
 Messages are displayed in a user-friendly interface
