@@ -20,5 +20,4 @@ Screenshots:
 ![image](https://github.com/myistaken/Chat-with-CustomTkinter/assets/102411484/8f4bc3c9-4b0d-4ef4-b94f-3a8ae577a06f)
 ![image](https://github.com/myistaken/Chat-with-CustomTkinter/assets/102411484/470d4d59-991a-4932-8f49-989f811bd441)
 
-Contributing
 Contributions are welcome! If you find any bugs or want to add new features, please submit a pull request.
