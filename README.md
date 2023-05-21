@@ -1,6 +1,4 @@
-Sure! Here's the content for your README file:
-
-Project Name
+WhatsDown
 The project is titled "Chat Application" or any suitable name that describes its functionality.
 
 Description
@@ -15,7 +13,8 @@ Appearance mode options: Light, Dark, and System
 Ability to clear the chat
 Exit confirmation dialog
 
-Screenshots
+Screenshots:
+
 ![image](https://github.com/myistaken/Chat-with-CustomTkinter/assets/102411484/32a7fd6b-304a-4445-892f-5a48e8537409)
 ![image](https://github.com/myistaken/Chat-with-CustomTkinter/assets/102411484/8f4bc3c9-4b0d-4ef4-b94f-3a8ae577a06f)
 ![image](https://github.com/myistaken/Chat-with-CustomTkinter/assets/102411484/470d4d59-991a-4932-8f49-989f811bd441)
